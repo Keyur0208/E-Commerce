@@ -34,7 +34,7 @@ export default async function Product_Section()
                                         <p className='card-text'>{item.desc}</p>
                                         <p style={{fontWeight:'bold'}} >{`₹${item.price}`}</p>
                                         <div>
-                                            <a href="/shop" className="btn btn-primary">Add Item</a>
+                                            <a href="#" className="btn btn-primary">Add Item</a>
                                         </div>
                                     </div>
                                 </div>

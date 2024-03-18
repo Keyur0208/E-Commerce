@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { BASE_API } from '../lib/userdb';
 
 export default function Login_com() {
 
@@ -85,7 +86,7 @@ export default function Login_com() {
         }
         else {
             try {
-                const user_exits = await fetch("http://localhost:3000/api/emailexits", {
+                const user_exits = await fetch(`${BASE_API}/api/emailexits`, {
                     method: "POST",
                     body: JSON.stringify({ email })
                 })
@@ -102,7 +103,7 @@ export default function Login_com() {
                     return;
                 }
 
-                let insert_data = await fetch("http://localhost:3000/api/userdata", {
+                let insert_data = await fetch(`${BASE_API}/api/userdata`, {
                     method: "POST",
                     body: JSON.stringify({ name, email, password })
                 })
