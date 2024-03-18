@@ -1,13 +1,13 @@
-import { BASE_API } from "../lib/userdb"
+// import { BASE_API } from "../lib/userdb"
 
-async function ProductDeatils()
-{
-	let data = await fetch(`${BASE_API}/api/limited_product`,{
-		cache:"no-cache"
-	});
-	data = await data.json();
-	return data.result;
-}
+// async function ProductDeatils()
+// {
+// 	let data = await fetch(`${BASE_API}/api/limited_product`,{
+// 		cache:"no-cache"
+// 	});
+// 	data = await data.json();
+// 	return data.result;
+// }
 
 
 export default async function Product_Section()
