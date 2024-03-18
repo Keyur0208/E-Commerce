@@ -12,8 +12,8 @@
 
 export default async function Product_Section()
 {
-	let Product = await ProductDeatils();
-	console.log(Product);
+	// let Product = await ProductDeatils();
+	// console.log(Product);
 
     return(
         <div className="product-section">
