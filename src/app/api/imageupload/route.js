@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { writeFile } from 'fs/promises'
 import mongoose from "mongoose";
-import { Connect_Url } from "@/app/lib/userdb";
+import { Connect_Url, Image_url } from "@/app/lib/userdb";
 import { Product_form } from "@/app/lib/model/userproduct";
 
 export  async function GET() {
@@ -28,7 +28,7 @@ export async function POST(req) {
         const userid = post_data.get("userid");
         const bytData = await file.arrayBuffer();
         const buffer = Buffer.from(bytData);
-        const path = `./public/upload/${file.name}`;
+        const path = `${Image_url}/upload/${file.name}`;
         await writeFile(path,buffer);
         let image = file.name;
         const picture = await Product_form.create({name,price,desc,image,userid});

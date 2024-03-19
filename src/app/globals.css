@@ -584,4 +584,15 @@
 
 
 
-  
+  /* Feedback image */
+
+  .feedback-image{
+      width: 58%;
+  }
+
+  @media screen and (max-width:1000px) {
+    .feedback-image{
+      width: 100%;
+    }
+    
+  }

@@ -3,7 +3,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from 'react';
 import Add_Item_Cart from './Buttons/add_item_cart';
-import { BASE_API } from '../lib/userdb';
+import { BASE_API} from '../lib/userdb';
 
 function Searchdata() {
         const [userData, setUserdata] = useState([]);
@@ -24,7 +24,7 @@ function Searchdata() {
         const getSearch = event.target.value;
 
         if (getSearch.length > 0) {
-            const searchdata = userData.filter((item) => item.name.toLowerCase().includes(getSearch));
+            const searchdata = userData.filter((item) => item.name.toLowerCase().includes(getSearch) ||  item.name.toUpperCase().includes(getSearch) );
             setUserdata(searchdata);
         }
         else {
