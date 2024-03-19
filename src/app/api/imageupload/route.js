@@ -28,7 +28,7 @@ export async function POST(req) {
         const userid = post_data.get("userid");
         const bytData = await file.arrayBuffer();
         const buffer = Buffer.from(bytData);
-        const path = `./public/upload/${file.name}`;
+        const path = `public/upload/${file.name}`;
         await writeFile(path,buffer);
         let image = file.name;
         const picture = await Product_form.create({name,price,desc,image,userid});
