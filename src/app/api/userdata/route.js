@@ -27,5 +27,4 @@ export const POST = async (request) => {
     catch{
         return NextResponse.json({users:"Not Insert Data Any Proble in Mogodb" ,success:false},{status:400})    
     }
-
 }

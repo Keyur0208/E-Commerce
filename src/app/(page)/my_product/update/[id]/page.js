@@ -197,3 +197,4 @@ export default function Update_Product({ params }) {
         </div>
     )
 }
+

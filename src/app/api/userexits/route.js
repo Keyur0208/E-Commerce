@@ -23,7 +23,6 @@ export const POST = async (req) => {
 
         if (post_data.password && post_data.email ) {
             const users = await User_form.findOne(post_data).select("-password");
-
             if (users) {
                 return NextResponse.json({users,success:true},{ status: 200 });
             }
@@ -32,7 +31,7 @@ export const POST = async (req) => {
             }
         }
         else {
-            return NextResponse.json({ result: "Not User" ,success:true}, { status: 400 })
+            return NextResponse.json({ result: "Not User" ,success:false}, { status: 400 })
         }
     }
     catch {

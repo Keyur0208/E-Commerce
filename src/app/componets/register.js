@@ -19,7 +19,11 @@ export default function Login_com() {
     const [color_name, setcolor_name] = useState("#D2D2D2");
     const [color_mail, setcolor_mail] = useState("#D2D2D2");
     const [color_password, setcolor_password] = useState("#D2D2D2");
-    const [loading, setloading] = useState(false)
+    const [loading, setloading] = useState(false);
+
+    const [email_disable, setemail_disable] = useState(false);
+    const [password_disable, setpassword_disable] = useState(false);
+    const [name_disable, setname_disable] = useState(false);
 
     const showpassword = () => {
         if (type === 'password') {
@@ -72,6 +76,11 @@ export default function Login_com() {
     }
 
     const register_btn = async () => {
+
+        setemail_disable(true);
+        setpassword_disable(true);
+        setname_disable(true);
+
         if (!isFormValid) {
             setloading(true);
             Swal.fire({
@@ -79,13 +88,49 @@ export default function Login_com() {
                 title: "Oops...",
                 text: "Feels Blacks Form!",
             });
-            setcolor_name('red');
-            setcolor_mail('red');
-            setcolor_password('red');
+
+            if(password.length == 0 && email.length == 0 && name.length == 0 )
+            {
+                setcolor_mail('red');
+                setcolor_password('red');
+                setcolor_name('red');
+            }
+            else if(name.length <=50 && email.length == 0 && password.length == 0 )
+            {
+                setcolor_mail('red');
+                setcolor_password('red');
+            }
+            else if(name.length ==0 && email.length <=50 && password.length ==0 )
+            {
+                setcolor_name('red');
+                setcolor_password('red');
+            }
+            else if(name.length ==0 && email.length ==0 && password.length <=50)
+            {
+                setcolor_name('red');
+                setcolor_mail('red');
+            }
+            else if(name.length <=50 && email.length <=50 && password.length ==0)
+            {
+                setcolor_password('red');
+            }
+            else if(name.length<=50 && email.length==0 && password.length <=50)
+            {
+                setcolor_mail('red');
+            }
+            else 
+            {
+                setcolor_name('red');
+            }
+            
+            setname_disable(false);
+            setemail_disable(false);
+            setpassword_disable(false);
             setloading(false);
         }
         else {
             try {
+                setloading(true);
                 const user_exits = await fetch(`${BASE_API}/api/emailexits`, {
                     method: "POST",
                     body: JSON.stringify({ email })
@@ -100,6 +145,9 @@ export default function Login_com() {
                     });
                     setcolor_mail('red');
                     setloading(false);
+                    setname_disable(false);
+                    setemail_disable(false);
+                    setpassword_disable(false);
                     return;
                 }
 
@@ -173,6 +221,7 @@ export default function Login_com() {
                                                 autoFocus={true}
                                                 value={name}
                                                 onChange={(e) => setname(e.target.value)}
+                                                disabled={name_disable}
                                             />
                                             {
                                                 error.name &&
@@ -187,6 +236,7 @@ export default function Login_com() {
                                                 placeholder='Email'
                                                 value={email}
                                                 onChange={(e) => setemail(e.target.value)}
+                                                disabled={email_disable}
                                             />
                                             {
                                                 error.email &&
@@ -201,6 +251,7 @@ export default function Login_com() {
                                                 placeholder='Password'
                                                 value={password}
                                                 onChange={(e) => setpassword(e.target.value)}
+                                                disabled={password_disable}
                                             />
                                             {
                                                 error.password &&
@@ -236,3 +287,4 @@ export default function Login_com() {
     )
 
 }
+

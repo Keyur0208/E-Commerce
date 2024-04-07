@@ -23,7 +23,6 @@ export default function Hedaer_Componet() {
     }
 
 
-
     function logout() {
 
         const swalWithBootstrapButtons = Swal.mixin({
@@ -61,7 +60,6 @@ export default function Hedaer_Componet() {
 
     useEffect(() => {
         let data = localStorage.getItem("user");
-
         try
         {
             let user_id = JSON.parse(data).users._id;
@@ -77,8 +75,6 @@ export default function Hedaer_Componet() {
         {
             console.log(error);
         }
-
-        
     }, []);
 
 

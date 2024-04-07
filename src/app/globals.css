@@ -52,8 +52,6 @@
     width: calc(100% - 16px);
 }
 
-
-
 .custom-navbar .custom-navbar-nav li.active a:before {
     width: calc(100% - 16px);
 }
@@ -590,9 +588,16 @@
       width: 58%;
   }
 
+  .page-404{
+    width: 75%;
+  }
+
   @media screen and (max-width:1000px) {
     .feedback-image{
       width: 100%;
     }
-    
+
+    .page-404{
+      width: 100%;
+    }
   }

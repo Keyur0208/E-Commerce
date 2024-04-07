@@ -46,3 +46,4 @@ export default async function Product_Section()
 		</div>
     )
 }
+

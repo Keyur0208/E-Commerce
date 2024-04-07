@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const Checkout = mongoose.Schema({
 
+    customerId:{
+        type:String,
+        require:true
+    },
     name:{
         type:String,
         require:true

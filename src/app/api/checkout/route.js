@@ -23,9 +23,9 @@ export async function POST(req)
 {
     try{
         const post_data = await req.json();
-        const {name,address,country,state, zip, email, phone, order_note}  = post_data;
+        const {customerId,name,address,country,state, zip, email, phone, order_note}  = post_data;
         await mongoose.connect(Connect_Url);
-        let user_data = await User_Chechout.create({name,address,country,state, zip, email, phone, order_note})
+        let user_data = await User_Chechout.create({customerId,name,address,country,state, zip, email, phone, order_note})
         return NextResponse.json({message:user_data,succeess:true},{status:200});
     }
     catch(error)

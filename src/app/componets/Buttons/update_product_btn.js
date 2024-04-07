@@ -15,6 +15,6 @@ export default function Update_product_btn(props)
   }
 
   return(
-    <button className="btn btn-primary" onClick={navigation}  >Update</button>
+    <button className="btn btn-primary" onClick={navigation} >Update</button>
   )
 }

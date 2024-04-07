@@ -128,7 +128,7 @@ export default function Add_Product() {
                 <div className="mt-3">
                     <div className="mb-3">
                         <label htmlFor="UrunID" className="form-label">Product Name</label>
-                        <input type="text" className="form-control" style={{ border: `1px solid ${color_name}` }} value={name} onChange={(e) => setname(e.target.value)} />
+                        <input type="text" className="form-control" style={{ border: `1px solid ${color_name}`,textTransform:'capitalize' }} value={name} onChange={(e) => setname(e.target.value)} />
                     </div>
                     {
                         error.name &&
@@ -148,7 +148,7 @@ export default function Add_Product() {
                     }
                     <div className="mb-3">
                         <label htmlFor="UrunID" className="form-label">Product Description</label>
-                        <input type="text" className="form-control" style={{ border: `1px solid ${color_desc}` }} value={desc} onChange={(e) => setdesc(e.target.value)} />
+                        <input type="text" className="form-control" style={{ border: `1px solid ${color_desc}`,textTransform:'capitalize' }} value={desc} onChange={(e) => setdesc(e.target.value)} />
                     </div>
                     {
                         error.desc &&

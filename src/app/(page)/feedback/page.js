@@ -1,3 +1,7 @@
+export const metadata = {
+    title:"Feedback - RUXI"
+  }  
+
 export default function Feedback() {
     return (
         <div className="container">

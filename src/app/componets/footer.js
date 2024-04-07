@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Footer_Componets() {
@@ -8,7 +9,7 @@ export default function Footer_Componets() {
 	return (
 		<div>
 			{
-				pathname !== "/login" && pathname !== '/register'  &&  pathname !== '/thank_you' && pathname !== '/loading'?
+				pathname !== "/login" && pathname !== '/register' && pathname !== '/thank_you' && pathname !== '/loading' ?
 
 					<div className="footer-section bg-light pt-3">
 						<div className="container">
@@ -23,35 +24,63 @@ export default function Footer_Componets() {
 									<div className="row links-wrap">
 										<div className="col-6 col-sm-6 col-md-3 col-lg-3">
 											<ul className="list-unstyled">
-												<li><a href="/">About us</a></li>
-												<li><a href="/">Services</a></li>
-												<li><a href="/">Blog</a></li>
-												<li><a href="/">Contact us</a></li>
+												<li>
+													<Link href="#">About us</Link>
+												</li>
+												<li>
+													<Link href="#">Services</Link>
+												</li>
+												<li>
+													<Link href="#">Blog</Link>
+												</li>
+												<li>
+													<Link href="#">Contact Us</Link>
+												</li>
 											</ul>
 										</div>
 
 										<div className="col-6 col-sm-6 col-md-3 col-lg-3 ">
 											<ul className="list-unstyled">
-												<li><a href="/">Support</a></li>
-												<li><a href="/">Knowledge base</a></li>
-												<li><a href="/">Live chat</a></li>
+												<li>
+													<Link href="#">Support</Link>
+												</li>
+												<li>
+													<Link href="#">Knowledge Base</Link>
+												</li>
+												<li>
+													<Link href="#">Live Chat</Link>
+												</li>
 											</ul>
 										</div>
 
 										<div className="col-6 col-sm-6 col-md-3 col-lg-3">
 											<ul className="list-unstyled">
-												<li><a href="/">Jobs</a></li>
-												<li><a href="/">Our team</a></li>
-												<li><a href="/">Leadership</a></li>
-												<li><a href="/">Privacy Policy</a></li>
+												<li>
+													<Link href="#">Jobs</Link>
+												</li>
+												<li>
+													<Link href="#">Our Team</Link>
+												</li>
+												<li>
+													<Link href="#">Leadership</Link>
+												</li>
+												<li>
+													<Link href="#">Privacy Policy</Link>
+												</li>
 											</ul>
 										</div>
 
 										<div className="col-6 col-sm-6 col-md-3 col-lg-3">
 											<ul className="list-unstyled">
-												<li><a href="/">Nordic Chair</a></li>
-												<li><a href="/">Kruzo Aero</a></li>
-												<li><a href="/">Ergonomic Chair</a></li>
+												<li>
+													<Link href="#">Nordic Chair</Link>
+												</li>
+												<li>
+													<Link href="#">Kruzo Aero</Link>
+												</li>
+												<li>
+													<Link href="#">Ergonomic Chai</Link>
+												</li>
 											</ul>
 										</div>
 									</div>
@@ -82,3 +111,4 @@ export default function Footer_Componets() {
 		</div>
 	)
 }
+

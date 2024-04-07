@@ -1,23 +1,11 @@
-"use client"
-import { useRouter } from "next/navigation"
+import Thank_you_page from "@/app/componets/thank_you"
 
+export const metadata = {
+    title:"Thank You - RUXI"
+}
 
-export default function Thank_you() {
-
-    let route = useRouter();
-
-    function navigation() {
-        route.push('/shop');
-    }
-
+export default function page() {
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', height: '100vh', alignItems: 'center', flexDirection: 'column' }} >
-            <img src="/shopping.png" style={{ height: '8rem' }} />
-            <h1 style={{ fontSize: '4rem', fontWeight: "500" }} >Thank You !</h1>
-            <p style={{ fontSize: '1.25rem', fontWeight: "300" }}>You order was successfuly completed.</p>
-            <div className="my-3" >
-                <button className="btn btn-dark rounded-pill p-3 " onClick={navigation} >Back To Shop</button>
-            </div>
-        </div>
+        <Thank_you_page/>
     )
 }

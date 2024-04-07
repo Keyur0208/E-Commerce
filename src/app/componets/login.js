@@ -18,7 +18,10 @@ export default function Login_com() {
     const [type, setType] = useState('password');
     const [color_mail, setcolor_mail] = useState("#D2D2D2");
     const [color_password, setcolor_password] = useState("#D2D2D2");
-    const [loading, setloading] = useState(false)
+    const [loading, setloading] = useState(false);
+
+    const [email_disable, setemail_disable] = useState(false);
+    const [password_disable, setpassword_disable] = useState(false);
 
     const showpassword = () => {
         if (type === 'password') {
@@ -52,7 +55,7 @@ export default function Login_com() {
         else if (password.length < 8) {
             let total_char = 8;
             let password_length = password.length;
-            let error_password =  total_char - password_length
+            let error_password = total_char - password_length
             error.password = `Password Must Be ${error_password} Charater`;
         }
         else {
@@ -64,6 +67,10 @@ export default function Login_com() {
     }
 
     const register_btn = async () => {
+
+        setemail_disable(true);
+        setpassword_disable(true);
+
         if (!isFormValid) {
             setloading(true);
             Swal.fire({
@@ -71,8 +78,23 @@ export default function Login_com() {
                 title: "Oops...",
                 text: "Feels Blacks Form!",
             });
-            setcolor_mail('red');
-            setcolor_password('red');
+
+            if(password.length == 0 && email.length == 0)
+            {
+                setcolor_mail('red');
+                setcolor_password('red');
+            }
+            else if(password.length==0 && email.length <= 50)
+            {
+                setcolor_password('red');
+            }
+            else
+            {
+                setcolor_mail('red');
+            }
+
+            setemail_disable(false);
+            setpassword_disable(false);
             setloading(false);
         }
         else {
@@ -83,7 +105,6 @@ export default function Login_com() {
                     body: JSON.stringify({ email, password })
                 })
                 user_exits = await user_exits.json();
-
                 if (user_exits.users) {
                     const Toast = Swal.mixin({
                         toast: true,
@@ -110,9 +131,12 @@ export default function Login_com() {
                         text: "Incorrect Deatils Plz Again Try"
                     });
                     setloading(false);
+                    setemail_disable(false);
+                    setpassword_disable(false);
+                    setemail(email.replace(email,""));
+                    setpassword(password.replace(password,""));
                 }
             }
-
             catch (error) {
                 alert("UnSuccessfull Data insert");
             }
@@ -151,6 +175,7 @@ export default function Login_com() {
                                                 placeholder='Email'
                                                 value={email}
                                                 onChange={(e) => setemail(e.target.value)}
+                                                disabled={email_disable}
                                             />
                                             {
                                                 error.email &&
@@ -165,6 +190,7 @@ export default function Login_com() {
                                                 placeholder='Password'
                                                 value={password}
                                                 onChange={(e) => setpassword(e.target.value)}
+                                                disabled={password_disable}
                                             />
                                             {
                                                 error.password &&
@@ -200,3 +226,4 @@ export default function Login_com() {
     )
 
 }
+
